@@ -1,12 +1,12 @@
 const express = require("express"), app=express(),port = process.env.PORT || 3000;
 const bodyParser = require("body-parser");const path = require("path");
-const mw = require("./middleware/mw"); const seeds = require("./db/seeds/createcars");
-const Car = require("./models/Car");
-const Color = require("./models/Color");
-const Addition = require("./models/Addition");
-const Order_addtion = require("./models/Order_Addition");
-const Order = require("./models/Order");
-require("./db/mongoose.js");
+const mw = require("../middleware/mw"); const seeds = require("../db/seeds/createcars");
+const Car = require("../models/Car");
+const Color = require("../models/Color");
+const Addition = require("../models/Addition");
+const Order_addtion = require("../models/Order_Addition");
+const Order = require("../models/Order");
+require("../db/mongoose.js");
 
 app.use(express.static(path.join(__dirname, "../Public/")));
 app.use(bodyParser.urlencoded({ extended: false }));
