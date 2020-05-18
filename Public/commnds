@@ -1,0 +1,8 @@
+/Users/dawid/mongodb/bin/mongod.exe --dbpath=/Users/dawid/mongodb_data 
+mpm run db 
+npm run server
+git push
+git status
+git add.
+nodemon app.js -hbs,js,css
+npm install hbs
