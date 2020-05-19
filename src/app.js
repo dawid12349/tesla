@@ -4,7 +4,6 @@ const mw = require("../middleware/mw"); const seeds = require("../db/seeds/creat
 const Car = require("../models/Car");
 const Color = require("../models/Color");
 const Addition = require("../models/Addition");
-const Order_addtion = require("../models/Order_Addition");
 const Order = require("../models/Order");
 require("../db/mongoose.js");
 
@@ -12,8 +11,8 @@ app.use(express.static(path.join(__dirname, "../Public/")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//seeds.createCars(); seeds.createColors();
-
+/*seeds.createCars(); seeds.createColors();
+seeds.createAdditions();*/
 app.get("/", mw.maintance ,(req,res)=>{
     res.send("HOME PAGE");
 });
@@ -43,8 +42,10 @@ app.get("/main/:name", async (req,res)=>{
 app.get("/main/:name/configure", async (req,res)=>{
     try{
         carName = req.params.name;
-        colors = await Color.find({});
-        additions = await Addition.find({});
+        colors = await Color.find({}).select("name -_id");
+
+        car_id= await Car.findOne({name: req.params.name}, '_id');
+        additions = await Addition.find({ owners: {$all: [car_id]} }).select('-owners');
         res.status(200).send({carName, colors, additions});
     }catch(error){
         res.status(400).send({"error": "Something went wrong"});
@@ -53,8 +54,9 @@ app.get("/main/:name/configure", async (req,res)=>{
 app.post("/main/:name/configure", async (req,res)=>{
     try{
         const order = new Order(req.body); 
-        await order.populate("car_id", "cost").execPopulate();
-        await order.save();
+        await order.populate("car_id color_id additions ", "cost").execPopulate();
+        console.log(order);
+       await order.save();
         return res.status(200).send(order);
     }catch(error){
          res.status(400).send({"error": "Something went wrong"});
@@ -65,9 +67,9 @@ app.post("/main/:name/configure", async (req,res)=>{
 app.get("/orders", async(req,res)=>{
     try{
 
-        const orders = await Order.find({}).select()
+        const orders = await Order.find({})
         .populate('car_id', "name -_id")
-        .select("-color_id -customer_phone");
+        .select("_id customer_name date cost");
     
         console.log(orders);
         return res.status(200).send(orders);
@@ -80,7 +82,7 @@ app.get("/orders", async(req,res)=>{
 app.get("/orders/:id", async(req,res)=>{
     try{
         const order = await Order.findById(req.params.id)
-        .populate("car_id color_id", "name")
+        .populate("car_id color_id additions", "name")
         return res.status(200).send(order);
     }catch(error){
          res.status(400).send({"error": "Something went wrong"});

@@ -1,38 +1,82 @@
 var mongoose = require("mongoose");
 var Color  = require("../../models/Color");
 var Car = require("../../models/Car");
+var Addition  = require("../../models/Addition");
 
 var colorSeeds = [
     {
-        name: "magenta",
-        hex: "#FF00FF",
+        name: "Black",
+        hex: "#000000",
+        cost: 1200,
     },
     {
-        name: "purple",
-        hex: "#800080",
+        name: "Deep Blue",
+        hex: "#00008B",
+        cost: 1200,
     },
     {
-        name: "darkmagenta",
-        hex: "#8B008B",
+        name: "Midnight Silver",
+        hex: "#68707C",
+        cost: 1200,
+    },
+    {
+        name: "Red Multi-Coat",
+        hex: "#a62c2b",
+        cost: 2200,
+    },
+    {
+        name: "orange",
+        hex: "#FF4500",
+        cost: 2500,
     }
 ];
 var carSeeds = [
     {
-        name: "teslaCar1",
-        cost: 5000,
-        description: "Reprehenderit mollit eiusmod sunt officia minim enim mollit"
+        name: "ModelX",
+        cost: 77700,
+        description: "Range: 507km Top speed: 250km/h 0-100km/h:4,6s"
     },
     {
-        name: "teslaCar2",
-        cost: 5000,
-        description: "Reprehenderit mollit eiusmod sunt officia minim enim mollit"
+        name: "ModelS",
+        cost: 72600,
+        description: "Range: 610km Top speed: 250km/h 0-100km/h: 3,8s"
     },
     {
-        name: "teslaCar3",
-        cost: 5000,
-        description: "Reprehenderit mollit eiusmod sunt officia minim enim mollit"
+        name: "Model3",
+        cost: 39500,
+        description: "Range: 409km Top speed: 225km/h 0-100km/h: 5,6s"
     }
 ];
+var additions = [
+    {
+        name: "felgi",
+        cost: 50,
+        description: "super felgi",
+        owners: [
+            "5eb8706156fc5c20c842f232",
+        ]
+    },
+    {
+        name: "wysuwane lustra",
+        cost: 500,
+        description: "super lustra",
+        owners: [
+            "5eb8706156fc5c20c842f22e",
+            "5eb8706156fc5c20c842f230",
+        ]
+    },
+    {
+        name: "przyciemmnione szyby",
+        cost: 5000,
+        description: "super szyby",
+        owners: [
+            "5eb8706156fc5c20c842f22e",
+            "5eb8706156fc5c20c842f232",
+        ]
+    }
+];
+
+
 
 async function createColors(){
     try {
@@ -62,5 +106,19 @@ async function createCars(){
     }
 }
 
+async function createAdditions(){
+    try {
+        await Addition.deleteMany({});
+        console.log('additions removed');
+        for(const addition of additions) {
+            let  mongoAddition = await new Addition(addition);
+            await mongoAddition.save();
+            console.log('addition added to db');
+        }
+    } catch(err) {
+        console.log(err);
+    }
+}
 
-module.exports = {createColors, createCars};
+
+module.exports = {createColors, createCars, createAdditions};

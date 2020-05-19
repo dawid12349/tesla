@@ -11,11 +11,14 @@ const colorSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        validate(value){
-            if(!validator.isHexColor(value)) throw new Error();
-        },
     },
-
+    cost: {
+        type: Number,
+        required: true,
+        validate(value){
+            if(value<0) throw new Error();
+        },
+    }
 });
 
 

@@ -4,13 +4,10 @@ const validator = require("validator");
 
 const orderSchema = new mongoose.Schema({
     //testing
-  /*  additions:[{
-        id:{  
-            type: mongoose.Schema.Types.ObjectId,
-            require: true,
-            ref: "Addition"
-        }},
-    ],*/
+    additions:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Addition",
+    }],
     car_id:{
         type: mongoose.Schema.Types.ObjectId,
         require: true,
@@ -52,8 +49,14 @@ orderSchema.pre('save', async function (next) {
     const order = this
 
     if(!order.car_id.cost) throw new Error();
-
+    if(!order.color_id.cost) throw new Error();
+    
     order.cost +=order.car_id.cost;
+    order.cost +=order.color_id.cost;
+
+    order.additions.forEach((addition)=>{
+        order.cost += addition.cost;
+    })
 
     next()
 })

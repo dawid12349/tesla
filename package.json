@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "server": "./src/nodemon app.js",
+    "server": "nodemon ./src/app.js",
     "db": "/Users/dawid/mongodb/bin/mongod.exe --dbpath=/Users/dawid/mongodb_data"
   },
   "author": "",

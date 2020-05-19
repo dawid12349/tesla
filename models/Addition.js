@@ -17,7 +17,11 @@ const additionSchema = new mongoose.Schema({
     description: {
         type: String, 
         default: "sample text",
-    }
+    },
+    owners:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Car",
+    }]
 
 });
 
