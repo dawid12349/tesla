@@ -11,8 +11,8 @@ app.use(express.static(path.join(__dirname, "../Public/")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//seeds.createCars(); seeds.createColors();
-//seeds.createAdditions();
+/*seeds.createCars(); seeds.createColors();
+seeds.createAdditions();*/
 app.get("/", mw.maintance ,(req,res)=>{
     res.send("HOME PAGE");
 });
@@ -45,7 +45,7 @@ app.get("/main/:name/configure", async (req,res)=>{
         colors = await Color.find({}).select("name -_id");
 
         car_id= await Car.findOne({name: req.params.name}, '_id');
-        additions = await Addition.find({ owners: {$all: [car_id]} }).select('-owners -description ');
+        additions = await Addition.find({ owners: {$all: [car_id]} }).select('-owners');
         res.status(200).send({carName, colors, additions});
     }catch(error){
         res.status(400).send({"error": "Something went wrong"});
@@ -89,8 +89,8 @@ app.get("/orders/:id", async(req,res)=>{
     }
 });
 
-//not working
-app.put("/orders/:id/config", async(req,res)=>{
+
+app.patch("/orders/:id/config", async(req,res)=>{
     const updates = Object.keys(req.body)
     //need change validation
     try {
@@ -121,7 +121,7 @@ app.delete('/orders/:id', async (req, res) => {
 
         res.send(order)
     } catch (e) {
-        res.status(500).send({"error": "something went wrong"});
+        res.status(500).send()
     }
 })
 
@@ -138,6 +138,39 @@ app.get("/color", async (req,res)=>{
         res.status(400).send({"error": "Something went wrong"});
     }
 });
+
+//test routes
+
+// app.post("/main", async (req,res)=>{
+//     try{
+//         const car = new Car(req.body); 
+//         await car.save()
+//         return res.status(200).send(car);
+//     } catch(error){
+//         res.status(400).send();
+//     }
+// });
+ 
+// app.post("/dodatek", async (req,res)=>{
+//     try{
+//         const addition = new Addition(req.body); 
+//         await addition.save()
+//         return res.status(200).send(addition);
+//     } catch(error){
+//         res.status(400).send();
+//     }
+// })
+
+// app.post("/color", async (req,res)=>{
+//     try{
+//         const color = new Color(req.body); 
+//         await color.save()
+//         return res.status(200).send(color);
+//     } catch(error){
+//         res.status(400).send();
+//     }
+// });
+
 
 
 //not important
