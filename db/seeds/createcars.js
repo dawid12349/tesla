@@ -49,30 +49,127 @@ var carSeeds = [
 ];
 var additions = [
     {
-        name: "felgi",
-        cost: 50,
-        description: "super felgi",
+        name: 'Silver wheels',
+        cost: 0,
         owners: [
-            "5eb8706156fc5c20c842f232",
-        ]
+            "5ec2dac22ddcf74bc4b7889f",
+            "5ec2dac22ddcf74bc4b788a2"
+        ],
+        type: "felgi",
     },
     {
-        name: "wysuwane lustra",
-        cost: 500,
-        description: "super lustra",
+        name: '19" Sport wheels',
+        cost: 1300,
         owners: [
-            "5eb8706156fc5c20c842f22e",
-            "5eb8706156fc5c20c842f230",
-        ]
+            "5ec2dac22ddcf74bc4b788a5",
+        ],
+        type: "felgi",
     },
     {
         name: "przyciemmnione szyby",
-        cost: 5000,
-        description: "super szyby",
+        cost: 1500,
         owners: [
-            "5eb8706156fc5c20c842f22e",
-            "5eb8706156fc5c20c842f232",
-        ]
+            "5ec2dac22ddcf74bc4b7889f",
+            "5ec2dac22ddcf74bc4b788a2",
+            "5ec2dac22ddcf74bc4b788a5"
+        ],
+        type: "szyby"
+    },
+    {
+        name: "Long range",
+        cost: 8700,
+        owners: [
+            "5ec2dac22ddcf74bc4b788a5",
+        ],
+        type: "wersja"
+    },
+    {
+        name: "Performance",
+        cost: 13400,
+        owners: [
+            "5ec2dac22ddcf74bc4b788a5",
+            "5ec2dac22ddcf74bc4b788a2",
+            "5ec2dac22ddcf74bc4b7889f",
+        ],
+        type: "wersja"
+    },
+    {
+        name: "Sonic Carbon Slipstream Wheels",
+        cost: 1300,
+        owners: [
+            "5ec2dac22ddcf74bc4b788a2",
+        ],
+        type: "felgi"
+    },
+    {
+        name: "Sonic Carbon Twin Turbine Wheels",
+        cost: 4000,
+        owners: [
+            "5ec2dac22ddcf74bc4b788a2",
+        ],
+        type: "felgi"
+    },
+    {
+        name: "Two Tone Sliperstream",
+        cost: 1800,
+        owners: [
+            "5ec2dac22ddcf74bc4b7889f"
+        ],
+        type: "felgi"
+    },
+    {
+        name: "Onyx Black Wheels",
+        cost: 4800,
+        owners: [
+            "5ec2dac22ddcf74bc4b7889f"
+        ],
+        type: "felgi"
+    },
+    {
+        name: "six seat interior",
+        cost: 5700,
+        owners: [
+            "5ec2dac22ddcf74bc4b7889f"
+        ],
+        type: "siedzenia"
+    },
+    {
+        name: "seven seat interior",
+        cost: 3100,
+        owners: [
+            "5ec2dac22ddcf74bc4b7889f"
+        ],
+        type: "siedzenia"
+    },
+    {
+        name: "Black and White Carbon Fiber",
+        cost: 1300,
+        owners: [
+            "5ec2dac22ddcf74bc4b788a5",
+            "5ec2dac22ddcf74bc4b788a2",
+            "5ec2dac22ddcf74bc4b7889f",
+        ],
+        type: "siedzenia"
+    },
+    {
+        name: "Cream Oak Wood",
+        cost: 1300,
+        owners: [
+            "5ec2dac22ddcf74bc4b788a5",
+            "5ec2dac22ddcf74bc4b788a2",
+            "5ec2dac22ddcf74bc4b7889f",
+        ],
+        type: "siedzenia"
+    },
+    {
+        name: "Autopilot",
+        cost: 5300,
+        owners: [
+            "5ec2dac22ddcf74bc4b788a5",
+            "5ec2dac22ddcf74bc4b788a2",
+            "5ec2dac22ddcf74bc4b7889f",
+        ],
+        type: "other"
     }
 ];
 

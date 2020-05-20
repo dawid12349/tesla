@@ -21,7 +21,11 @@ const additionSchema = new mongoose.Schema({
     owners:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Car",
-    }]
+    }],
+    type:{
+        type: String,
+        required: true,
+    }
 
 });
 
