@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "server": "nodemon ./src/app.js",
-    "db": "/Users/dawid/mongodb/bin/mongod.exe --dbpath=/Users/dawid/mongodb_data"
+    "db": "C:/Users/Dawid/mongo/bin/mongod.exe --dbpath=/Users/Dawid/mongodb_data"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +16,6 @@
     "validator": "^13.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.4"
   }
 }
