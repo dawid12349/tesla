@@ -32,16 +32,19 @@ var colorSeeds = [
 ];
 var carSeeds = [
     {
+        _id : mongoose.Types.ObjectId("5ec2dac22ddcf74bc4b7889f"),
         name: "ModelX",
         cost: 77700,
         description: "Range: 507km Top speed: 250km/h 0-100km/h:4,6s"
     },
     {
+        _id : mongoose.Types.ObjectId("5ec2dac22ddcf74bc4b788a2"),
         name: "ModelS",
         cost: 72600,
         description: "Range: 610km Top speed: 250km/h 0-100km/h: 3,8s"
     },
     {
+        _id : mongoose.Types.ObjectId("5ec2dac22ddcf74bc4b788a5"),
         name: "Model3",
         cost: 39500,
         description: "Range: 409km Top speed: 225km/h 0-100km/h: 5,6s"

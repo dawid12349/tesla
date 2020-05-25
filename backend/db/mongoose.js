@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/tesla', {
+mongoose.connect('mongodb+srv://admin:skorpion1@cluster0-qpuuj.mongodb.net/tesla', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,

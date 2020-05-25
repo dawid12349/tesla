@@ -1,4 +1,5 @@
-const express = require("express"), app=express(),port = process.env.PORT || 3000;
+'use strict';
+const express = require("express"), app=express();
 const bodyParser = require("body-parser");const path = require("path");
 const mw = require("../middleware/mw"); const seeds = require("../db/seeds/createcars");
 const Car = require("../models/Car");
@@ -7,12 +8,16 @@ const Addition = require("../models/Addition");
 const Order = require("../models/Order");
 require("../db/mongoose.js");
 
+const PORT = process.env.PORT || 3000;
+const HOST = '0.0.0.0';
+
+
 app.use(express.static(path.join(__dirname, "../Public/")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-seeds.createCars(); seeds.createColors();
-seeds.createAdditions();
+/*seeds.createCars(); seeds.createColors();
+seeds.createAdditions();*/
 app.get("/", mw.maintance ,(req,res)=>{
     res.send("HOME PAGE");
 });
@@ -144,7 +149,5 @@ app.get("/color", async (req,res)=>{
 app.get("*", (req,res)=>{
     res.status(404).send("Page Not Found 404!");
 })
-app.listen(port, ()=>{
-    console.log("server is running on port 3000");
-})
-
+app.listen(PORT, HOST);
+console.log(`Running on http://${HOST}:${PORT}`);
