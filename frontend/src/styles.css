@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('http://fonts.googleapis.com/css?family=Lato');
+
+@font-face {
+  font-family: Tesla;
+  src: url(assets/TESLA.ttf) format("truetype");
+}
+
+body {
+  -webkit-background-size: cover; /* For WebKit*/
+  -moz-background-size: cover;    /* Mozilla*/
+  -o-background-size: cover;      /* Opera*/
+  background-size: cover;         /* Generic*/
+
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+
+  overflow-x: hidden;
+
+  background-attachment: scroll;
+
+  font-family: 'Lato', serif;
+}

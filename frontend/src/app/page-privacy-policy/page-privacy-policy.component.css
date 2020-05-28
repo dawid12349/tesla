@@ -1,0 +1,16 @@
+body {
+  background: url(../../assets/bg_landing.jpg) no-repeat center center fixed;
+}
+
+.container {
+  margin-left: 15%;
+  min-width: 70%;
+  max-width: 70%;
+  width: 70%;
+  min-height: 95vh;
+  overflow-y: auto;
+  text-align: center;
+  display: inline-block;
+  background: #FFFFFF77;
+  padding-top: 40px;
+}
