@@ -41,18 +41,22 @@ const orderSchema = new mongoose.Schema({
         validate(value){
             if(value<0) throw new Error('Validation error');
         },
+    },
+    customer_email:{
+        type: String,
+        validate(value){
+            if(!validator.isEmail(value)) throw new Error('Validation error');
+        }
     }
 });
 
 
 orderSchema.pre('save', async function (next) {
     const order = this
-
+    order.cost=0;
     if(!order.car_id.cost) throw new Error();
-    if(!order.color_id.cost) throw new Error();
     
     order.cost +=order.car_id.cost;
-    order.cost +=order.color_id.cost;
 
     order.additions.forEach((addition)=>{
         order.cost += addition.cost;

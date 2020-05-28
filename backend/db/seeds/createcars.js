@@ -7,47 +7,47 @@ var colorSeeds = [
     {
         name: "Black",
         hex: "#000000",
-        cost: 1200,
     },
     {
         name: "Deep Blue",
         hex: "#00008B",
-        cost: 1200,
     },
     {
         name: "Midnight Silver",
         hex: "#68707C",
-        cost: 1200,
     },
     {
         name: "Red Multi-Coat",
         hex: "#a62c2b",
-        cost: 2200,
     },
     {
         name: "orange",
         hex: "#FF4500",
-        cost: 2500,
     }
 ];
 var carSeeds = [
-    {
-        _id : mongoose.Types.ObjectId("5ec2dac22ddcf74bc4b7889f"),
+    {  
+        _id: mongoose.Types.ObjectId("5ec2dac22ddcf74bc4b7889f"),
         name: "ModelX",
         cost: 77700,
         description: "Range: 507km Top speed: 250km/h 0-100km/h:4,6s"
     },
     {
-        _id : mongoose.Types.ObjectId("5ec2dac22ddcf74bc4b788a2"),
+        _id: mongoose.Types.ObjectId("5ec2dac22ddcf74bc4b788a2"),
         name: "ModelS",
         cost: 72600,
         description: "Range: 610km Top speed: 250km/h 0-100km/h: 3,8s"
     },
     {
-        _id : mongoose.Types.ObjectId("5ec2dac22ddcf74bc4b788a5"),
+        _id: mongoose.Types.ObjectId("5ec2dac22ddcf74bc4b788a5"),
         name: "Model3",
         cost: 39500,
         description: "Range: 409km Top speed: 225km/h 0-100km/h: 5,6s"
+    },{
+        _id: mongoose.Types.ObjectId("5ec2dac22ddcf74bc4b788a9"),
+        name: "ModelY",
+        cost: 39500,
+        description: "Range: 505km Top speed: 225km/h 0-100km/h: 5,6s"
     }
 ];
 var additions = [
@@ -74,7 +74,8 @@ var additions = [
         owners: [
             "5ec2dac22ddcf74bc4b7889f",
             "5ec2dac22ddcf74bc4b788a2",
-            "5ec2dac22ddcf74bc4b788a5"
+            "5ec2dac22ddcf74bc4b788a5",
+            "5ec2dac22ddcf74bc4b788a9"
         ],
         type: "szyby"
     },
@@ -171,6 +172,7 @@ var additions = [
             "5ec2dac22ddcf74bc4b788a5",
             "5ec2dac22ddcf74bc4b788a2",
             "5ec2dac22ddcf74bc4b7889f",
+            "5ec2dac22ddcf74bc4b788a9"
         ],
         type: "other"
     }

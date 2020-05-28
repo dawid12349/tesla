@@ -1,4 +1,4 @@
-'use strict';
+
 const express = require("express"), app=express();
 const bodyParser = require("body-parser");const path = require("path");
 const mw = require("../middleware/mw"); const seeds = require("../db/seeds/createcars");
@@ -22,21 +22,19 @@ app.get("/", mw.maintance ,(req,res)=>{
     res.send("HOME PAGE");
 });
 
-app.get("/main", async (req, res)=>{
+//cars
+app.get("/cars", async (req, res)=>{
     try{
-        const car = await Car.find({});
+        const car = await Car.find({})
         if(car.length == 0) return res.status(400).send({"error": "cars not Found"});
         return res.status(200).send(car);
     }catch(error){
         res.status(400).send({"error": "Something went wrong"});
     }
 });
-
-
-//fetch single car
-app.get("/main/:name", async (req,res)=>{
+app.get("/cars/:name", async (req,res)=>{
     try{
-        singleCar = await Car.findOne({name: req.params.name})
+        singleCar = await Car.findOne({name: req.params.name});
         if(!singleCar) return res.status(400).send({"error": "Car Not Found"});
         return res.status(200).send(singleCar);
     } catch(error){
@@ -44,24 +42,27 @@ app.get("/main/:name", async (req,res)=>{
     }
 })
 
-app.get("/main/:name/configure", async (req,res)=>{
+app.get("/cars/:name/configure", async (req,res)=>{
     try{
         carName = req.params.name;
-        colors = await Color.find({}).select("name -_id");
+        colors = await Color.find({}).select("name ");
 
-        car_id= await Car.findOne({name: req.params.name}, '_id');
-        additions = await Addition.find({ owners: {$all: [car_id]} }).select('-owners -description ');
+        car_id=  await Car.findOne({name: req.params.name}, '_id');
+        additions = await Addition.find({ owners: {$all: [car_id]} }).select('-owners -description -type');
         res.status(200).send({carName, colors, additions});
     }catch(error){
         res.status(400).send({"error": "Something went wrong"});
     }
 })
-app.post("/main/:name/configure", async (req,res)=>{
+
+
+// new orders
+
+app.post("/orders", async (req,res)=>{
     try{
         const order = new Order(req.body); 
         await order.populate("car_id color_id additions ", "cost").execPopulate();
-        console.log(order);
-       await order.save();
+        await order.save();
         return res.status(200).send(order);
     }catch(error){
          res.status(400).send({"error": "Something went wrong"});
@@ -71,7 +72,6 @@ app.post("/main/:name/configure", async (req,res)=>{
 //all the orders
 app.get("/orders", async(req,res)=>{
     try{
-
         const orders = await Order.find({})
         .populate('car_id', "name -_id")
         .select("_id customer_name date cost");
@@ -83,7 +83,7 @@ app.get("/orders", async(req,res)=>{
     }
 });
 
-//single order config
+//single order info
 app.get("/orders/:id", async(req,res)=>{
     try{
         const order = await Order.findById(req.params.id)
@@ -94,20 +94,23 @@ app.get("/orders/:id", async(req,res)=>{
     }
 });
 
-//not working
-app.put("/orders/:id/config", async(req,res)=>{
+//patch
+app.patch("/orders/:id", async(req,res)=>{
     const updates = Object.keys(req.body)
-    //need change validation
-    try {
-        const order = await Order.findById(req.params.id)
-        .populate("car_id color_id", "name")
+    const allowed = ["name", "customer_phone", "customer_name", "customer_email", "additions", "car_id", "color_id"]
+    const isValidOperation = updates.every((update) => allowed.includes(update));
 
+    if(!isValidOperation) res.status(500).send({error: "Forbidden request"});
+    try {
+        const order = await Order.findById(req.params.id);
+        await order.populate("car_id color_id additions ", "cost").execPopulate();
         updates.forEach((update) => order[update] = req.body[update])
+        await order.populate("car_id color_id additions ", "cost").execPopulate();
         await order.save()
 
-        if (!order) {
+       /* if (!order) {
             return res.status(404).send()
-        }
+        }*/
 
         res.send(order)
     } catch (e) {
@@ -115,7 +118,7 @@ app.put("/orders/:id/config", async(req,res)=>{
     }
 });
 
-
+//deleton
 app.delete('/orders/:id', async (req, res) => {
     try {
         const order = await Order.findByIdAndDelete(req.params.id)
@@ -130,19 +133,29 @@ app.delete('/orders/:id', async (req, res) => {
     }
 })
 
+//see additions
 
-//tutaj DELETE i (PUT/PATCH)
-
-//test
-app.get("/color", async (req,res)=>{
+app.get("/additions", async (req, res)=>{
     try{
-        const colors = await Color.find({});
-        if(colors.length == 0) return res.status(400).send({"error": "Colors not Found"});
-        return res.status(200).send(colors);
-    } catch(error){
+        const Additions = await Addition.find({});
+        return res.status(200).send(Additions);
+    }catch(error){
         res.status(400).send({"error": "Something went wrong"});
     }
 });
+
+app.get("/additions/:id", async (req, res)=>{
+    try{
+        car_id = req.params.id;
+        Additions = await Addition.find({ owners: {$all: [car_id]} }).select('-owners -type');
+        return res.status(200).send(Additions);
+    }catch(error){
+        res.status(400).send({"error": "Something went wrong"});
+    }
+});
+
+//tutaj DELETE i (PUT/PATCH)
+
 
 
 //not important

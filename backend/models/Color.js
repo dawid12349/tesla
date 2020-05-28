@@ -11,13 +11,6 @@ const colorSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-    },
-    cost: {
-        type: Number,
-        required: true,
-        validate(value){
-            if(value<0) throw new Error();
-        },
     }
 });
 

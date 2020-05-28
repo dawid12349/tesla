@@ -19,15 +19,6 @@ const carSchema = new mongoose.Schema({
         type: String,
         default: "Sample text",
     },
-    picture: {
-        type: String,
-        default: "https://cdn.iconscout.com/icon/free/png-256/page-not-found-5-530376.png"
-    },
-    icon:{
-        type: String,
-        default: "https://cdn.iconscout.com/icon/free/png-256/page-not-found-5-530376.png"
-    },
-
 });
 
 
