@@ -1,0 +1,64 @@
+body {
+  text-align: center;
+}
+
+.border_button_active {
+  border: #CCCCCC solid 3px;
+  color: #CCCCCC;
+}
+
+.border_button_not_active {
+  border: #000000 solid 3px;
+  color: #000000;
+}
+
+.border_button_not_active, .border_button_active {
+  padding: .4em;
+  margin: 10px;
+  background: transparent;
+  font-size: 2em;
+
+}
+
+#bg {
+  min-width: 100%;
+  min-height: 100vh;
+}
+
+.bg-s {
+  background-image: url("../../assets/bg_s.jpg");
+}
+.bg-3 {
+  background-image: url("../../assets/bg_3.jpg");
+}
+.bg-x {
+  background-image: url("../../assets/bg_x.jpg");
+}
+.bg-y {
+  background-image: url("../../assets/bg_y.jpg");
+}
+
+#logo {
+  top: 100px;
+  height: 100%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+#top-panel {
+  margin-top: 20px;
+  margin-left: auto;
+  height: 180px;
+  align-items: center;
+  display: inline-flex;
+  border-bottom: #00000088 solid 1px;
+}
+
+#configure-button{
+  background: transparent;
+  font-size: 3em;
+  border: #CCCCCC solid 3px;
+  color: #CCCCCC;
+  margin-top: 60vh;
+  padding: .5em 2em .5em 2em;
+}

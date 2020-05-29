@@ -1,0 +1,15 @@
+<body>
+<div id="bg" class="bg-s">
+<div id="top-panel" style="z-index: 1">
+  <img id="logo" routerLink="/home" src="assets/logo_name.svg"/>
+  <button (click)="toS()" id="models" class="border_button_active">Model S</button>
+  <button (click)="to3()" id="model3" class="border_button_not_active">Model 3</button>
+  <button (click)="toX()" id="modelx" class="border_button_not_active">Model X</button>
+  <button (click)="toY()" id="modely" class="border_button_not_active">Model Y</button>
+</div>
+
+<div id="configure-button-div" style="z-index: 1">
+<button (click)="toConf()" id="configure-button">Configure</button>
+</div>
+</div>
+</body>
