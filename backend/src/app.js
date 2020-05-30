@@ -16,8 +16,8 @@ app.use(express.static(path.join(__dirname, "../Public/")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-/*seeds.createCars(); seeds.createColors();
-seeds.createAdditions();*/
+//seeds.createCars(); seeds.createColors();
+//seeds.createAdditions();
 app.get("/", mw.maintance ,(req,res)=>{
     res.send("HOME PAGE");
 });
@@ -32,9 +32,9 @@ app.get("/cars", async (req, res)=>{
         res.status(400).send({"error": "Something went wrong"});
     }
 });
-app.get("/cars/:name", async (req,res)=>{
+app.get("/cars/:id", async (req,res)=>{
     try{
-        singleCar = await Car.findOne({name: req.params.name});
+        singleCar = await Car.findOne({_id: req.params.id});
         if(!singleCar) return res.status(400).send({"error": "Car Not Found"});
         return res.status(200).send(singleCar);
     } catch(error){
@@ -42,14 +42,13 @@ app.get("/cars/:name", async (req,res)=>{
     }
 })
 
-app.get("/cars/:name/configure", async (req,res)=>{
+app.get("/cars/:id/configure", async (req,res)=>{
     try{
-        carName = req.params.name;
-        colors = await Color.find({}).select("name ");
+        colors = await Color.find({}).select("-hex");
 
-        car_id=  await Car.findOne({name: req.params.name}, '_id');
-        additions = await Addition.find({ owners: {$all: [car_id]} }).select('-owners -description -type');
-        res.status(200).send({carName, colors, additions});
+        car_id=  await Car.findOne({_id: req.params.id})
+        additions = await Addition.find({ owners: {$all: [car_id]} }).select("-owners");
+        res.status(200).send({car_id, colors, additions});
     }catch(error){
         res.status(400).send({"error": "Something went wrong"});
     }
@@ -61,7 +60,7 @@ app.get("/cars/:name/configure", async (req,res)=>{
 app.post("/orders", async (req,res)=>{
     try{
         const order = new Order(req.body); 
-        await order.populate("car_id color_id additions ", "cost").execPopulate();
+        await order.populate("car_id color_id additions", "-owners").execPopulate();
         await order.save();
         return res.status(200).send(order);
     }catch(error){
@@ -73,8 +72,7 @@ app.post("/orders", async (req,res)=>{
 app.get("/orders", async(req,res)=>{
     try{
         const orders = await Order.find({})
-        .populate('car_id', "name -_id")
-        .select("_id customer_name date cost");
+        .populate('car_id additions color_id', "-owners");
     
         console.log(orders);
         return res.status(200).send(orders);
@@ -86,8 +84,7 @@ app.get("/orders", async(req,res)=>{
 //single order info
 app.get("/orders/:id", async(req,res)=>{
     try{
-        const order = await Order.findById(req.params.id)
-        .populate("car_id color_id additions", "name")
+        const order = await Order.findById(req.params.id).populate('car_id additions color_id', "-owners");
         return res.status(200).send(order);
     }catch(error){
          res.status(400).send({"error": "Something went wrong"});
@@ -103,14 +100,14 @@ app.patch("/orders/:id", async(req,res)=>{
     if(!isValidOperation) res.status(500).send({error: "Forbidden request"});
     try {
         const order = await Order.findById(req.params.id);
-        await order.populate("car_id color_id additions ", "cost").execPopulate();
+        await order.populate("car_id color_id additions ").execPopulate();
         updates.forEach((update) => order[update] = req.body[update])
-        await order.populate("car_id color_id additions ", "cost").execPopulate();
+        await order.populate("car_id color_id additions ").execPopulate();
         await order.save()
 
-       /* if (!order) {
+       if (!order) {
             return res.status(404).send()
-        }*/
+        }
 
         res.send(order)
     } catch (e) {
@@ -147,7 +144,7 @@ app.get("/additions", async (req, res)=>{
 app.get("/additions/:id", async (req, res)=>{
     try{
         car_id = req.params.id;
-        Additions = await Addition.find({ owners: {$all: [car_id]} }).select('-owners -type');
+        Additions = await Addition.find({ owners: {$all: [car_id]} });
         return res.status(200).send(Additions);
     }catch(error){
         res.status(400).send({"error": "Something went wrong"});
