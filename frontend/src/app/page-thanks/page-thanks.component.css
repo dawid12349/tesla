@@ -1,0 +1,80 @@
+body {
+  background: url(../../assets/bg_landing.jpg) no-repeat center center fixed;
+}
+
+#confirm-button {
+  background: transparent;
+  font-size: 3em;
+  border: #CCCCCC solid 3px;
+  color: #CCCCCC;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 90%;
+  text-align: center;
+}
+#cancel-button {
+  background: transparent;
+  font-size: 3em;
+  border: darkred solid 3px;
+  color: darkred;
+  width: 90%;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+#landing_logo {
+  width: 15vw;
+  height: 15vw;
+}
+
+
+
+table {
+  margin-top: 10vh;
+  width: 40%;
+  margin-left: 30%;
+}
+
+td {
+  width: 50%;
+  height: 100%;
+  text-align: center;
+}
+
+.container {
+  margin: auto;
+  width: 100%;
+  overflow-y: auto;
+  text-align: center;
+  display: inline-block;
+}
+
+.border_button {
+  background: transparent;
+  font-size: 3em;
+  border: #CCCCCC solid 3px;
+  color: #CCCCCC;
+  padding: .3em;
+
+}
+
+#thanks-div {
+  font-size: 2em;
+  padding: 30px;
+  margin-top: 100px;
+  margin-left: 30%;
+  font-weight: bold;
+  background: #CCCCCCAA;
+  width: 40%;
+}
+
+#welcome_order_button {
+  margin-top: 20vh;
+  padding: .5em 2em .5em 2em;
+}
+
+#manage_orders_button {
+  float: right;
+  font-size: 1.5em;
+  margin-top: 15px;
+  margin-right: 15px;
+}

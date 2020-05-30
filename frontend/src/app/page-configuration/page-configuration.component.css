@@ -1,0 +1,108 @@
+body {
+  text-align: center;
+}
+
+#bg {
+  min-width: 100%;
+  min-height: 100vh;
+  padding: 0;
+}
+
+.bg-s {
+  background: url("../../assets/bg_s.jpg") no-repeat center center fixed;
+}
+.bg-3 {
+  background: url("../../assets/bg_3.jpg") no-repeat center center fixed;
+}
+.bg-x {
+  background: url("../../assets/bg_x.jpg") no-repeat center center fixed;
+}
+.bg-y {
+  background: url("../../assets/bg_y.jpg") no-repeat center center fixed;
+}
+
+.container {
+  width: 70%;
+  overflow-y: auto;
+  text-align: center;
+  display: inline-block;
+  background: #00000033;
+}
+
+table {
+  margin-top: 50px;
+  height: 100%;
+  width: 100%;
+  font-family: Tesla, serif;
+}
+
+td, th {
+  vert-align: bottom;
+  text-align: center;
+  font-size: 8em;
+}
+
+#logo {
+  height: 150px;
+  width: 70%;
+  alignment: center;
+}
+
+.inner-div {
+  background: #00000066;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 70%;
+  margin-left: 15%;
+  font-size: 2.5em;
+  line-height: 2em;
+  color: #CCCCCC;
+}
+
+#top-panel {
+  width: 100%;
+  height: 150px;
+  align-items: center;
+  display: inline-flex;
+}
+
+.td-bordered {
+  border: 0;
+  border-left: #00000055 solid 1px;
+  border-right: #00000055 solid 1px;
+}
+
+th {
+  border-bottom: black solid 1px;
+}
+
+.border_button {
+  background: transparent;
+  font-size: 3em;
+  border: #CCCCCC solid 3px;
+  color: #CCCCCC;
+  padding: .3em;
+
+}
+
+#welcome_order_button {
+  margin-top: 43vh;
+  padding: .5em 2em .5em 2em;
+}
+
+#home_button {
+  float: left;
+  font-size: 1.5em;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+#order-button {
+  background: transparent;
+  font-size: 3em;
+  border: #CCCCCC solid 3px;
+  color: #CCCCCC;
+  margin-top: 30px;
+  margin-bottom: 45px;
+  padding: .5em 2em .5em 2em;
+}
