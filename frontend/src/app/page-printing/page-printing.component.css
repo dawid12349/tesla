@@ -1,0 +1,15 @@
+#content {
+  width: 40%;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+th{
+  text-align: left;
+  border-bottom: black 1px solid;
+}
+
+table {
+  border: black 1px solid;
+  border-spacing: 15px;
+}

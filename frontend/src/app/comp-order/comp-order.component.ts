@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BackendCommunicationService} from '../backend-communication.service';
+import {Order} from '../models';
 
 @Component({
   selector: 'app-comp-order',
@@ -19,11 +20,3 @@ export class CompOrderComponent implements OnInit {
 
 }
 
-export interface Order {
-  id: string;
-  car_id: string;
-  color_id: string;
-  customer_name: string;
-  customer_phone: string;
-  additions: string[];
-}

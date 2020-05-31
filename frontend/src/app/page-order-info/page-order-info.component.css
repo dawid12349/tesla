@@ -1,0 +1,89 @@
+body {
+  background: url(../../assets/bg_landing.jpg) no-repeat center center fixed;
+}
+
+.container {
+  margin-left: auto;
+  min-width: 70%;
+  min-height: 95vh;
+  overflow-y: auto;
+  text-align: center;
+  display: inline-block;
+  background: #FFFFFF77;
+}
+
+table {
+  max-width: 100%;
+  width: 100%;
+}
+
+td {
+  width: 50%;
+}
+
+.td-bordered {
+  border: 0;
+  border-left: #00000055 solid 1px;
+  border-right: #00000055 solid 1px;
+}
+
+b {
+  line-height: 2em;
+  font-size: 1.5em;
+}
+
+a {
+  font-weight: bold;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+}
+
+th {
+  border-bottom: black solid 1px;
+}
+
+.border_button {
+  background: transparent;
+  font-size: 3em;
+  border: #CCCCCC solid 3px;
+  color: #CCCCCC;
+  padding: .3em;
+
+}
+
+#welcome_order_button {
+  margin-top: 43vh;
+  padding: .5em 2em .5em 2em;
+}
+
+#home_button {
+  float: left;
+  font-size: 1.5em;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+#back_button {
+  float: left;
+  font-size: 1.5em;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+
+p {
+  font-size: 3em;
+}
+
+.border_button_big {
+  background: transparent;
+  font-size: 3em;
+  border: #000000 solid 3px;
+  color: #000000;
+  width: 70%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}

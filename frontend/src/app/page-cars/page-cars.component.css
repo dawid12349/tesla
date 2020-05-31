@@ -20,6 +20,10 @@ body {
 
 }
 
+#description {
+  font-size: 1.5em;
+}
+
 #bg {
   min-width: 100%;
   min-height: 100vh;

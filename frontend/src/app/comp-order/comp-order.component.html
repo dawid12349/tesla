@@ -1,1 +1,7 @@
-<p>comp-order works!</p>
+<tr *ngFor="let order in orders">
+  <td>{{order.date}}</td>
+  <td class="td-bordered">{{order.customer_name}}</td>
+  <td>{{order.car.name}}</td>
+  <td class="td-bordered">{{order.value}}</td>
+  <td>show</td>
+</tr>

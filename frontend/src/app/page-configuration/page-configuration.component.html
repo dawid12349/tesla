@@ -2,7 +2,7 @@
 <div id="bg" class="bg-s">
 <div class="container">
   <div id="top-panel">
-    <table>
+    <table class="table-top">
       <tr>
         <td width="15%"><img routerLink="/home" id="logo" src="assets/logo_name.svg"/></td>
         <td width="70%" style="border-bottom: #00000088 solid 1px">MODEL S</td>
@@ -11,19 +11,77 @@
     </table>
   </div>
 
-  <div class="inner-div">Color select: </div>
-  <div class="inner-div">Additions: </div>
-  <div class="inner-div">Cost: </div>
+  <div class="inner-div"><span class="group-title">Color select:</span>
+
+  <table class="table-colors"><tr>
+    <td style="width: auto"></td>
+    <td><div class="color-bg-bg-selected" id="color1bg"><div (click)="color1()" id="color1" class="color-bg" style="background-color: aqua"></div></div></td>
+    <td><div class="color-bg-bg" id="color2bg"><div (click)="color2()" id="color2" class="color-bg" style="background-color: salmon"></div></div></td>
+    <td><div class="color-bg-bg" id="color3bg"><div (click)="color3()" id="color3" class="color-bg" style="background-color: darkblue"></div></div></td>
+    <td><div class="color-bg-bg" id="color4bg"><div (click)="color4()" id="color4" class="color-bg" style="background-color: darkblue"></div></div></td>
+    <td style="width: auto"></td>
+  </tr></table>
+
+  </div>
+  <div class="inner-div-addons" style="padding-top:30px; padding-bottom:30px; line-height: 1em">
+
+    <span class="group-title">Additions:</span><br/><br/>
+
+      <form>
+        <div class="inner-div-group">
+          <span class="group-title" style="align-self: center">Version:</span>
+          <p><input class="radio-input" type="radio" name="wheels"/> Performance</p>
+          <p><input class="radio-input" type="radio" name="wheels"/> Long Range</p>
+          <p><input class="radio-input" type="radio" name="wheels" checked="checked"/> Stock</p>
+        </div>
+        <div class="inner-div-group">
+          <span class="group-title" style="align-self: center">Windows:</span>
+          <p><input class="radio-input" type="radio" name="verions"/> Tinted glass</p>
+          <p><input class="radio-input" type="radio" name="verions" checked="checked"/> Stock</p>
+        </div>
+        <div class="inner-div-group">
+          <span class="group-title" style="align-self: center">Wheels:</span>
+          <p><input class="radio-input" type="radio" name="wheels"/> Silver wheels</p>
+          <p><input class="radio-input" type="radio" name="wheels"/> Sport wheels</p>
+          <p><input class="radio-input" type="radio" name="wheels"/> Sonic Carbon Slipstream Wheels</p>
+          <p><input class="radio-input" type="radio" name="wheels"/> Sonic Carbon Turbine Wheels</p>
+          <p><input class="radio-input" type="radio" name="wheels"/> Two Tone Sliperstream</p>
+          <p><input class="radio-input" type="radio" name="wheels"/> Onyx Black Wheels</p>
+          <p><input class="radio-input" type="radio" name="wheels" checked="checked"/> Stock</p>
+        </div>
+        <div class="inner-div-group">
+          <span class="group-title" style="align-self: center">Seats configuration:</span>
+          <p><input class="radio-input" type="radio" name="seats-conf"/> Six seat interior</p>
+          <p><input class="radio-input" type="radio" name="seats-conf"/> Seven seat interior</p>
+          <p><input class="radio-input" type="radio" name="seats-conf" checked="checked"/> Stock</p>
+        </div>
+        <div class="inner-div-group">
+          <span class="group-title" style="align-self: center">Interior:</span>
+          <p><input class="radio-input" type="radio" name="interior"/> Black and White Carbon Fiber</p>
+          <p><input class="radio-input" type="radio" name="interior"/> Cream Oak Wood</p>
+          <p><input class="radio-input" type="radio" name="interior" checked="checked"/> Stock</p>
+        </div>
+
+        <p><input class="check-input" type="checkbox"/> Autopilot</p>
+
+
+      </form>
+
+
+  </div>
+  <div class="inner-div"><b>Cost: 80000$</b></div>
   <div class="inner-div">
-    Your name: <br/>
-    Phone number: <br/>
-    E-mail address: <br/>
+    <table class="table-info">
+      <tr><td style="text-align: right">Your name: </td><td style="width: 50%"><input class="text-input" type="text"/><td></tr>
+      <tr><td style="text-align: right">Phone number: </td><td style="width: 50%"><input class="text-input" type="text"/></td></tr>
+      <tr><td style="text-align: right">E-mail address: </td><td style="width: 50%"><input class="text-input" type="text"/><br/></td></tr>
+    </table>
   </div>
 
 </div>
 
 <div style="text-align: center">
-  <button routerLink="/thanks" id="order-button">Order</button>
+  <button (click)="submit()" routerLink="/thanks" id="order-button">Order</button>
 </div>
 </div>
 </body>

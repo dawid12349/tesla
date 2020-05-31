@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
+import {BackendCommunicationService} from '../backend-communication.service';
+import {Observable} from 'rxjs';
+import {Car} from '../models';
 
 @Component({
   selector: 'app-page-cars',
@@ -8,8 +11,13 @@ import {Router} from "@angular/router";
 })
 
 export class PageCarsComponent implements OnInit {
-  constructor(private router: Router) { }
+  cars: Car[];
+  selectedCar: Car;
+  constructor(private router: Router, private db: BackendCommunicationService) { }
   ngOnInit(): void {
+    this.getCars();
+    this.selectedCar = (this.cars)[1];
+    console.log('edcedce');
   }
   toS() {
     document.getElementById('models').setAttribute('class', 'border_button_active');
@@ -17,6 +25,7 @@ export class PageCarsComponent implements OnInit {
     document.getElementById('modelx').setAttribute('class', 'border_button_not_active');
     document.getElementById('modely').setAttribute('class', 'border_button_not_active');
     document.getElementById('bg').setAttribute('class', 'bg-s');
+    this.selectedCar = this.cars[1];
   }
 
   to3() {
@@ -25,6 +34,7 @@ export class PageCarsComponent implements OnInit {
     document.getElementById('modelx').setAttribute('class', 'border_button_not_active');
     document.getElementById('modely').setAttribute('class', 'border_button_not_active');
     document.getElementById('bg').setAttribute('class', 'bg-3');
+    this.selectedCar = this.cars[2];
   }
 
   toX() {
@@ -33,6 +43,7 @@ export class PageCarsComponent implements OnInit {
     document.getElementById('modelx').setAttribute('class', 'border_button_active');
     document.getElementById('modely').setAttribute('class', 'border_button_not_active');
     document.getElementById('bg').setAttribute('class', 'bg-x');
+    this.selectedCar = this.cars[0];
   }
 
   toY() {
@@ -41,6 +52,7 @@ export class PageCarsComponent implements OnInit {
     document.getElementById('modelx').setAttribute('class', 'border_button_not_active');
     document.getElementById('modely').setAttribute('class', 'border_button_active');
     document.getElementById('bg').setAttribute('class', 'bg-y');
+    this.selectedCar = this.cars[3];
   }
   toConf() {
     // tslint:disable-next-line:triple-equals
@@ -57,10 +69,33 @@ export class PageCarsComponent implements OnInit {
     }
     // tslint:disable-next-line:triple-equals
     if (document.getElementById('bg').getAttribute('class') == 'bg-y') {
-      this.router.navigate(['configuration'], { queryParams: { car: 'model-y'}});
+      this.router.navigate(['configuration'], {queryParams: {car: 'model-y'}});
     }
+
+      // // tslint:disable-next-line:triple-equals
+      // if (document.getElementById('bg').getAttribute('class') == 'bg-s') {
+      //   this.router.navigate(['cars/' + this.selectedCar._id + '/']);
+      // }
+      // // tslint:disable-next-line:triple-equals
+      // if (document.getElementById('bg').getAttribute('class') == 'bg-3') {
+      //   this.router.navigate(['cars/' + this.selectedCar._id + '/']);
+      // }
+      // // tslint:disable-next-line:triple-equals
+      // if (document.getElementById('bg').getAttribute('class') == 'bg-x') {
+      //   this.router.navigate(['cars' + this.selectedCar._id + '/']);
+      // }
+      // // tslint:disable-next-line:triple-equals
+      // if (document.getElementById('bg').getAttribute('class') == 'bg-y') {
+      //   this.router.navigate(['cars/' + this.selectedCar._id + '/']);
+      // }
+  }
+  getCars(): void {
+    this.db.getCars()
+      .subscribe(cars => this.cars = cars);
   }
 }
+
+
 
 
 

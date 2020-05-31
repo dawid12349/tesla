@@ -31,6 +31,13 @@ td, th {
   border-right: #00000055 solid 1px;
 }
 
+a {
+  font-weight: bold;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+}
+
 th {
   border-bottom: black solid 1px;
 }
@@ -50,6 +57,7 @@ th {
 }
 
 #home_button {
+  display: inline-block;
   float: left;
   font-size: 1.5em;
   margin-top: 15px;

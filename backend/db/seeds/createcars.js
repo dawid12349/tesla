@@ -8,6 +8,16 @@ var colorSeeds = [
         name: "Black",
         hex: "#000000",
     },
+    var mongoose = require("mongoose");
+var Color  = require("../../models/Color");
+var Car = require("../../models/Car");
+var Addition  = require("../../models/Addition");
+
+var colorSeeds = [
+    {
+        name: "Black",
+        hex: "#000000",
+    },
     {
         name: "Deep Blue",
         hex: "#00008B",

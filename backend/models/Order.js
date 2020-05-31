@@ -13,6 +13,21 @@ const orderSchema = new mongoose.Schema({
         require: true,
         ref: "Car",
     },
+    color_id:{const mongoose = require("mongoose");
+const validator = require("validator");
+
+
+const orderSchema = new mongoose.Schema({
+    //testing
+    additions:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Addition",
+    }],
+    car_id:{
+        type: mongoose.Schema.Types.ObjectId,
+        require: true,
+        ref: "Car",
+    },
     color_id:{
         type: mongoose.Schema.Types.ObjectId,
         require: true,

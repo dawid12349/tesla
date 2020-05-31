@@ -21,6 +21,11 @@ body {
   background: url("../../assets/bg_y.jpg") no-repeat center center fixed;
 }
 
+.group-title {
+  font-size: 1em;
+  font-family: TESLA;
+}
+
 .container {
   width: 70%;
   overflow-y: auto;
@@ -29,11 +34,24 @@ body {
   background: #00000033;
 }
 
-table {
-  margin-top: 50px;
+.table-top {
+  margin-top: 100px;
   height: 100%;
   width: 100%;
   font-family: Tesla, serif;
+}
+
+.table-colors {
+  margin-top: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+.table-info {
+  margin-top: 20px;
+  height: 100%;
+  width: 90%;
+  font-size: 0.1em;
 }
 
 td, th {
@@ -57,6 +75,51 @@ td, th {
   font-size: 2.5em;
   line-height: 2em;
   color: #CCCCCC;
+}
+
+.inner-div-addons {
+  background: #00000066;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 70%;
+  margin-left: 15%;
+  font-size: 2.5em;
+  line-height: 2em;
+  color: #CCCCCC;
+}
+
+.inner-div-group {
+  background: #00000066;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: left;
+  max-width: 70%;
+  width: 70%;
+  margin-left: 15%;
+  font-size: 0.8em;
+  line-height: 1em;
+  color: #CCCCCC;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+.inner-div-group span {
+  padding-left: 50px;
+}
+
+.inner-div-info {
+  background: #00000066;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: left;
+  max-width: 70%;
+  width: 70%;
+  margin-left: 15%;
+  font-size: 0.8em;
+  line-height: 1em;
+  color: #CCCCCC;
+  padding-bottom: 30px;
+  padding-top: 30px;
 }
 
 #top-panel {
@@ -105,4 +168,82 @@ th {
   margin-top: 30px;
   margin-bottom: 45px;
   padding: .5em 2em .5em 2em;
+}
+
+.text-input {
+  margin-left: 20px;
+  vertical-align: middle;
+  text-align: center;
+  height: 30px;
+  width: 100%;
+  border: 3px solid #C4C4C4;
+  border-radius: 15px;
+  opacity: 1;
+  background: #00000000;
+  color: #CCCCCC;
+}
+
+.check-input {
+  margin-left: 20px;
+  vertical-align: middle;
+  text-align: center;
+  height: 30px;
+  border: 3px solid #C4C4C4;
+  border-radius: 15px;
+  opacity: 1;
+  background: #00000000;
+  color: #CCCCCC;
+}
+
+table {
+  padding-top: 0;
+  margin-top: 0;
+  height: 100px;
+  margin-left: auto;
+  text-align: center;
+  padding-bottom: 30px;
+  border-spacing: 10px;
+}
+
+td {
+  text-align: center;
+  width: 100px;
+  height: 100px;
+}
+
+.color-bg {
+  width: 80px;
+  height: 80px;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 25px;
+}
+
+.color-bg-bg {
+  width: 80px;
+  height: 80px;
+  vertical-align: middle;
+  text-align: center;
+  padding: 5px;
+  border-radius: 25px;
+}
+
+.color-bg-bg-selected {
+  width: 80px;
+  height: 80px;
+  vertical-align: middle;
+  text-align: center;
+  background-color: #CCCCCC;
+  padding: 5px;
+  border-radius: 25px;
+}
+
+.color-block {
+  width: 90%;
+  height: 90%;
+}
+
+p {
+  margin-left: 50px;
+  margin-bottom: 30px;
 }
