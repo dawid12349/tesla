@@ -52,6 +52,10 @@ th {
 
 }
 
+.border_button:hover {
+  background: #CCCCCC66;
+}
+
 #welcome_order_button {
   margin-top: 43vh;
   padding: .5em 2em .5em 2em;
@@ -86,4 +90,8 @@ p {
   padding-top: 10px;
   padding-bottom: 10px;
 
+}
+
+.border_button_big:hover {
+  background: #00000022;
 }

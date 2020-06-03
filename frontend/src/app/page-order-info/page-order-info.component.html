@@ -6,27 +6,25 @@
 <table><tr>
   <td style="font-size: 1.5em; vertical-align: top">
     <b>Order details</b><br/>
-    Patryk Sukiennik<br/>
-    Łódź Bałuty 12-345<br/>
-    00000@gmail.com<br/>
-    02.02.2020<br/>
+    {{ order.customer_name }}<br/>
+    phone: {{ order.customer_phone }}<br/>
+    date: {{ order.date | date: "dd.MM.y" }}<br/>
     <br/>
     <b>Car specification</b><br/>
-    Model S<br/>
-    Blue<br/>
+    {{ order.car_id.name }}<br/>
+    {{ order.color_id.name }}<br/>
     <br/>
     <b>Car additions</b><br/>
-    Version: <i>Stock</i><br/>
-    Windows: <i>Stock</i><br/>
-    Wheels: <i>Silver wheels</i><br/>
-    Seats configuration: <i>Six seat interior</i><br/>
-    Interior: <i>Cream Oak Wood</i><br/>
+    Version: <i>{{ version.name }}</i><br/>
+    Windows: <i>{{ windows.name }}</i><br/>
+    Wheels: <i>{{ wheels.name }}</i><br/>
+    Seats configuration: <i>{{ seats.name }}</i><br/>
+    Interior: <i>{{ interior.name }}</i><br/>
   </td>
   <td>
-    <p>Total cost: $80000</p>
-    <button routerLink="/print" class="border_button_big">Print this order</button>
-    <button routerLink="/orders" class="border_button_big">Delete this order</button>
-    <button class="border_button_big">Contact client</button>
+    <p>Total cost: ${{ order.cost }}</p>
+    <button (click)="toPrint(order._id)" routerLink="/print" class="border_button_big">Print this order</button>
+    <button (click)="delete(order._id)" routerLink="/orders" class="border_button_big">Delete this order</button>
 
   </td>
 

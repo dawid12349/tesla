@@ -170,6 +170,14 @@ th {
   padding: .5em 2em .5em 2em;
 }
 
+#order-button:hover {
+  background: #CCCCCC66;
+}
+
+#home_button:hover {
+  background: #CCCCCC66;
+}
+
 .text-input {
   margin-left: 20px;
   vertical-align: middle;

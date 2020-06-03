@@ -31,3 +31,8 @@ body {
   padding: .3em;
 
 }
+
+
+.border_button:hover {
+  background: #CCCCCC66;
+}

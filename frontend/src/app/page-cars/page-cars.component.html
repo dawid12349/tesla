@@ -8,7 +8,7 @@
   <button (click)="toY()" id="modely" class="border_button_not_active">Model Y</button>
 </div>
 
-  <p id="description">{{selectedCar.description}}</p>
+  <p id="description">{{ selectedCar?.description }}</p>
 
 <div id="configure-button-div" style="z-index: 1">
 <button (click)="toConf()" id="configure-button">Configure</button>

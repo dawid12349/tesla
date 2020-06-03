@@ -1,11 +1,10 @@
 <body>
 <div id="content">
-  <b>Date: 02.02.2020</b><br/><br/>
+  <b>Date: {{ order.date | date: "dd.MM.y" }}</b><br/><br/>
 Customer:
 <table>
-<tr><td>Name:</td><td>Patryk Sukiennik</td></tr>
-<tr><td>Address:</td><td>Łódź Bałuty 12-345</td></tr>
-<tr><td>Email:</td><td>00000@gmail.com</td></tr>
+<tr><td>Name:</td><td>{{ order.customer_name }}</td></tr>
+<tr><td>Phone:</td><td>{{ order.customer_phone }}</td></tr>
 </table>
 
 <br>
@@ -14,14 +13,14 @@ Customer:
 Order:
 <table>
   <tr><th>Name</th><th>Value</th><th>Cost</th></tr>
-  <tr><td>Model:</td><td>Model S</td><td>$80000</td></tr>
-  <tr><td>Color:</td><td>Blue</td><td>$0</td></tr>
-  <tr><td>Version:</td><td>Stock</td><td>$0</td></tr>
-  <tr><td>Wheels:</td><td>Silver wheels</td><td>$0</td></tr>
-  <tr><td>Seats configuration:</td><td>Six seat interior</td><td>$0</td></tr>
-  <tr><td>Interior:</td><td>Cream Oak Wood</td><td>$0</td></tr>
-  <tr><td></td><td>Autopilot</td><td>$0</td></tr>
-  <tr><td></td><td style="text-align: right; margin-right: 10px"><b>Total:</b></td><td><b>$80000</b></td></tr>
+  <tr><td>Model:</td><td>{{ order.car_id.name }}</td><td>${{ order.car_id.cost }}</td></tr>
+  <tr><td>Color:</td><td>{{ order.color_id.name }}</td><td></td></tr>
+  <tr><td>Version:</td><td>{{ version.name }}</td><td>${{ version.cost }}</td></tr>
+  <tr><td>Wheels:</td><td>{{ wheels.name }}</td><td>${{ wheels.cost }}</td></tr>
+  <tr><td>Seats configuration:</td><td>{{ seats.name }}</td><td>${{ seats.cost }}</td></tr>
+  <tr><td>Interior:</td><td>{{ interior.name }}</td><td>${{ interior.cost }}</td></tr>
+  <tr><td></td><td>{{ others.name }}</td><td>${{ others.cost }}</td></tr>
+  <tr><td></td><td style="text-align: right; margin-right: 10px"><b>Total:</b></td><td><b>${{ order.cost }}</b></td></tr>
 </table>
 </div>
 </body>

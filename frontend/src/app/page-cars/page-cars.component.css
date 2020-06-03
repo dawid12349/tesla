@@ -20,6 +20,16 @@ body {
 
 }
 
+#configure-button:hover {
+  background: #CCCCCC66;
+  border: #CCCCCC solid 3px;
+  color: #CCCCCC;
+}
+
+.border_button_not_active:hover {
+  background: #00000022;
+}
+
 #description {
   font-size: 1.5em;
 }

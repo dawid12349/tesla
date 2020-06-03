@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Car, Order} from './models';
+import {Addition, Car, Order, OrderPost} from './models';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -9,25 +9,25 @@ import { map } from 'rxjs/operators';
 })
 export class BackendCommunicationService {
 
-  hostOrders = 'http:/localhost:3000/orders';
-  hostCars = 'http:/localhost:3000/cars';
-
   constructor(private http: HttpClient) { }
 
-  public getOrders() {
-    return this.http.get( this.hostOrders );
+  public getOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>( "http://localhost:3550/orders" );
   }
-  public getOrder(id: string) {
-    return this.http.get( this.hostOrders + '/' + id );
+  public getOrder(id: string): Observable<Order> {
+    return this.http.get<Order>( "http://localhost:3550/orders" + '/' + id );
   }
-  public postOrder(order: Order) {
-    return this.http.post( this.hostOrders, order);
+  public deleteOrder(id: string) {
+    this.http.delete( "http://localhost:3550/orders" + '/' + id );
+  }
+  public postOrder(order: OrderPost): Observable<OrderPost> {
+    return this.http.post<OrderPost>( "http://localhost:3550/orders", order);
+  }
+  public getCars(): Observable<Car[]>{
+    return this.http.get<Car[]>("http://localhost:3550/cars");
+  }
+  public getAdditions(): Observable<Addition[]>{
+    return this.http.get<Addition[]>("http://localhost:3550/additions");
   }
 
-  public getCars(): Observable<Car[]>{
-    return this.http.get<Car[]>("http://192.168.1.133:3550/cars");
-  }
-  public getConfigure(id: string) {
-    return this.http.get( this.hostCars + '/' + id + '/configure');
-  }
 }

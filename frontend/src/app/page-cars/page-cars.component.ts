@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {BackendCommunicationService} from '../backend-communication.service';
-import {Observable} from 'rxjs';
 import {Car} from '../models';
 
 @Component({
@@ -16,11 +15,10 @@ export class PageCarsComponent implements OnInit {
   constructor(private router: Router, private db: BackendCommunicationService) { }
   ngOnInit(): void {
     this.db.getCars()
-      .subscribe(cars => { //callback
-        this.cars = cars
+      .subscribe(cars => { // callback
+        this.cars = cars;
         this.selectedCar = (this.cars)[1];
-        console.log('edcedce');
-      })
+      });
   }
   toS() {
     document.getElementById('models').setAttribute('class', 'border_button_active');
@@ -75,31 +73,8 @@ export class PageCarsComponent implements OnInit {
       this.router.navigate(['configuration'], {queryParams: {car: 'model-y'}});
     }
 
-      // // tslint:disable-next-line:triple-equals
-      // if (document.getElementById('bg').getAttribute('class') == 'bg-s') {
-      //   this.router.navigate(['cars/' + this.selectedCar._id + '/']);
-      // }
-      // // tslint:disable-next-line:triple-equals
-      // if (document.getElementById('bg').getAttribute('class') == 'bg-3') {
-      //   this.router.navigate(['cars/' + this.selectedCar._id + '/']);
-      // }
-      // // tslint:disable-next-line:triple-equals
-      // if (document.getElementById('bg').getAttribute('class') == 'bg-x') {
-      //   this.router.navigate(['cars' + this.selectedCar._id + '/']);
-      // }
-      // // tslint:disable-next-line:triple-equals
-      // if (document.getElementById('bg').getAttribute('class') == 'bg-y') {
-      //   this.router.navigate(['cars/' + this.selectedCar._id + '/']);
-      // }
   }
-  getCars(): void {
-    this.db.getCars()
-      .subscribe(cars => {
-        console.log(cars);
-        this.cars = cars
 
-      });
-  }
 }
 
 

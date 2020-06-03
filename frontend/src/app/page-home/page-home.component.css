@@ -20,7 +20,13 @@ body {
   border: #CCCCCC solid 3px;
   color: #CCCCCC;
   padding: .3em;
+  cursor: pointer;
+}
 
+.border_button:hover {
+  background: #CCCCCC66;
+  border: #CCCCCC solid 3px;
+  color: #CCCCCC;
 }
 
 #welcome_order_button {
@@ -34,3 +40,4 @@ body {
   margin-top: 15px;
   margin-right: 15px;
 }
+

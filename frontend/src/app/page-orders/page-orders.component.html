@@ -12,12 +12,13 @@
       <th scope="col">details</th>
     </tr>
 
-    <tr>
-      <td>12.02.2020</td>
-      <td>Patryk Sukiennik</td>
-      <td>Model S</td>
-      <td>$80000</td>
-      <td><a routerLink="/order-info">show</a></td>
+
+    <tr *ngFor="let order of orders">
+      <td>{{ order.date | date: "dd.MM.y" }}</td>
+      <td>{{ order.customer_name }}</td>
+      <td>{{ order.car_id.name }}</td>
+      <td> ${{ order.cost }}</td>
+      <td><button (click)="details(order._id)">show</button></td>
     </tr>
 
 

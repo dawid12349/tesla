@@ -15,10 +15,11 @@
 
   <table class="table-colors"><tr>
     <td style="width: auto"></td>
-    <td><div class="color-bg-bg-selected" id="color1bg"><div (click)="color1()" id="color1" class="color-bg" style="background-color: aqua"></div></div></td>
-    <td><div class="color-bg-bg" id="color2bg"><div (click)="color2()" id="color2" class="color-bg" style="background-color: salmon"></div></div></td>
-    <td><div class="color-bg-bg" id="color3bg"><div (click)="color3()" id="color3" class="color-bg" style="background-color: darkblue"></div></div></td>
-    <td><div class="color-bg-bg" id="color4bg"><div (click)="color4()" id="color4" class="color-bg" style="background-color: darkblue"></div></div></td>
+    <td><div class="color-bg-bg-selected" id="color1bg"><div (click)="color1()" id="color1" class="color-bg" style="background-color: #000000"></div></div></td>
+    <td><div class="color-bg-bg" id="color2bg"><div (click)="color2()" id="color2" class="color-bg" style="background-color: #00008B"></div></div></td>
+    <td><div class="color-bg-bg" id="color3bg"><div (click)="color3()" id="color3" class="color-bg" style="background-color: #68707C"></div></div></td>
+    <td><div class="color-bg-bg" id="color4bg"><div (click)="color4()" id="color4" class="color-bg" style="background-color: #a62c2b"></div></div></td>
+    <td><div class="color-bg-bg" id="color5bg"><div (click)="color5()" id="color5" class="color-bg" style="background-color: #FF4500"></div></div></td>
     <td style="width: auto"></td>
   </tr></table>
 
@@ -30,39 +31,39 @@
       <form>
         <div class="inner-div-group">
           <span class="group-title" style="align-self: center">Version:</span>
-          <p><input class="radio-input" type="radio" name="wheels"/> Performance</p>
-          <p><input class="radio-input" type="radio" name="wheels"/> Long Range</p>
-          <p><input class="radio-input" type="radio" name="wheels" checked="checked"/> Stock</p>
+          <p><input class="radio-input" [(ngModel)]="version" type="radio" name="version" value="5ed224772159342b2cf9c7a2"/> Performance</p>
+          <p><input class="radio-input" [(ngModel)]="version" type="radio" name="version" value="5ed224772159342b2cf9c7a0"/> Long Range</p>
+          <p><input class="radio-input" [(ngModel)]="version" type="radio" name="version" value="0" checked="checked"/> Stock</p>
         </div>
         <div class="inner-div-group">
           <span class="group-title" style="align-self: center">Windows:</span>
-          <p><input class="radio-input" type="radio" name="verions"/> Tinted glass</p>
-          <p><input class="radio-input" type="radio" name="verions" checked="checked"/> Stock</p>
+          <p><input class="radio-input" [(ngModel)]="window" type="radio" name="windows" value="5ed224772159342b2cf9c79d"/> Tinted glass</p>
+          <p><input class="radio-input" [(ngModel)]="window" type="radio" name="windows" value="0" checked="checked"/> Stock</p>
         </div>
         <div class="inner-div-group">
           <span class="group-title" style="align-self: center">Wheels:</span>
-          <p><input class="radio-input" type="radio" name="wheels"/> Silver wheels</p>
-          <p><input class="radio-input" type="radio" name="wheels"/> Sport wheels</p>
-          <p><input class="radio-input" type="radio" name="wheels"/> Sonic Carbon Slipstream Wheels</p>
-          <p><input class="radio-input" type="radio" name="wheels"/> Sonic Carbon Turbine Wheels</p>
-          <p><input class="radio-input" type="radio" name="wheels"/> Two Tone Sliperstream</p>
-          <p><input class="radio-input" type="radio" name="wheels"/> Onyx Black Wheels</p>
-          <p><input class="radio-input" type="radio" name="wheels" checked="checked"/> Stock</p>
+          <p><input class="radio-input" [(ngModel)]="wheel" type="radio" name="wheels" value="5ed224772159342b2cf9c797"/> Silver wheels</p>
+          <p><input class="radio-input" [(ngModel)]="wheel" type="radio" name="wheels" value="5ed224772159342b2cf9c79a"/> Sport wheels</p>
+          <p><input class="radio-input" [(ngModel)]="wheel" type="radio" name="wheels" value="5ed224772159342b2cf9c7a3"/> Sonic Carbon Slipstream Wheels</p>
+          <p><input class="radio-input" [(ngModel)]="wheel" type="radio" name="wheels" value="5ed224772159342b2cf9c7a4"/> Sonic Carbon Turbine Wheels</p>
+          <p><input class="radio-input" [(ngModel)]="wheel" type="radio" name="wheels" value="5ed224772159342b2cf9c7a5"/> Two Tone Sliperstream</p>
+          <p><input class="radio-input" [(ngModel)]="wheel" type="radio" name="wheels" value="5ed224772159342b2cf9c7a6"/> Onyx Black Wheels</p>
+          <p><input class="radio-input" [(ngModel)]="wheel" type="radio" name="wheels" value="0" checked="checked"/> Stock</p>
         </div>
         <div class="inner-div-group">
           <span class="group-title" style="align-self: center">Seats configuration:</span>
-          <p><input class="radio-input" type="radio" name="seats-conf"/> Six seat interior</p>
-          <p><input class="radio-input" type="radio" name="seats-conf"/> Seven seat interior</p>
-          <p><input class="radio-input" type="radio" name="seats-conf" checked="checked"/> Stock</p>
+          <p><input class="radio-input" [(ngModel)]="seat" type="radio" name="seats-conf" value="5ed224782159342b2cf9c7a7"/> Six seat interior</p>
+          <p><input class="radio-input" [(ngModel)]="seat" type="radio" name="seats-conf" value="5ed224782159342b2cf9c7a8"/> Seven seat interior</p>
+          <p><input class="radio-input" [(ngModel)]="seat" type="radio" name="seats-conf" value="0" checked="checked"/> Stock</p>
         </div>
         <div class="inner-div-group">
           <span class="group-title" style="align-self: center">Interior:</span>
-          <p><input class="radio-input" type="radio" name="interior"/> Black and White Carbon Fiber</p>
-          <p><input class="radio-input" type="radio" name="interior"/> Cream Oak Wood</p>
-          <p><input class="radio-input" type="radio" name="interior" checked="checked"/> Stock</p>
+          <p><input class="radio-input" [(ngModel)]="interior" type="radio" name="interior" value="5ed224782159342b2cf9c7a9"/> Black and White Carbon Fiber</p>
+          <p><input class="radio-input" [(ngModel)]="interior" type="radio" name="interior" value="5ed224782159342b2cf9c7aa"/> Cream Oak Wood</p>
+          <p><input class="radio-input" [(ngModel)]="interior" type="radio" name="interior" value="0" checked="checked"/> Stock</p>
         </div>
 
-        <p><input class="check-input" type="checkbox"/> Autopilot</p>
+        <p><input class="check-input" type="checkbox" [(ngModel)]="ap" value="5ed224782159342b2cf9c7ab"/> Autopilot</p>
 
 
       </form>
@@ -72,9 +73,8 @@
   <div class="inner-div"><b>Cost: 80000$</b></div>
   <div class="inner-div">
     <table class="table-info">
-      <tr><td style="text-align: right">Your name: </td><td style="width: 50%"><input class="text-input" type="text"/><td></tr>
-      <tr><td style="text-align: right">Phone number: </td><td style="width: 50%"><input class="text-input" type="text"/></td></tr>
-      <tr><td style="text-align: right">E-mail address: </td><td style="width: 50%"><input class="text-input" type="text"/><br/></td></tr>
+      <tr><td style="text-align: right">Your name: </td><td style="width: 50%"><input [ngModelOptions]="{standalone: true}" class="text-input" [(ngModel)]="order.customer_name" type="text"/><td></tr>
+      <tr><td style="text-align: right">Phone number: </td><td style="width: 50%"><input [ngModelOptions]="{standalone: true}" class="text-input" [(ngModel)]="order.customer_phone" type="text"/></td></tr>
     </table>
   </div>
 

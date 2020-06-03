@@ -1,10 +1,21 @@
 export interface Order {
   _id: string;
-  car: Car;
-  color: Color;
+  car_id: Car;
+  color_id: Color;
   customer_name: string;
   customer_phone: string;
   date: string;
+  cost: number;
+  additions: Addition[];
+}
+
+export interface OrderPost {
+  _id: string;
+  car_id: string;
+  color_id: string;
+  customer_name: string;
+  customer_phone: string;
+  cost: number;
   additions: Addition[];
 }
 
@@ -17,14 +28,15 @@ export interface Car {
 
 export interface Color {
   _id: string;
-  car: Car;
+  name: string;
+  hex: string;
   color: Color;
 }
 
 export interface Addition {
   _id: string;
-  customer_name: string;
-  customer_phone: string;
-  date: string;
+  name: string;
+  cost: number;
+  type: string;
 }
 

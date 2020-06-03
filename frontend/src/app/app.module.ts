@@ -8,6 +8,7 @@ import { PageOrderInfoComponent } from './page-order-info/page-order-info.compon
 import { CompAddonComponent } from './comp-addon/comp-addon.component';
 import { CompOrderComponent } from './comp-order/comp-order.component';
 import { PagePrintingComponent } from './page-printing/page-printing.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PagePrintingComponent } from './page-printing/page-printing.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

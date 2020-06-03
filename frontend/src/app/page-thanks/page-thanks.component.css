@@ -16,7 +16,7 @@ body {
   background: transparent;
   font-size: 3em;
   border: darkred solid 3px;
-  color: darkred;
+  color: #8b0000;
   width: 90%;
   padding-left: 1em;
   padding-right: 1em;
@@ -26,6 +26,15 @@ body {
   height: 15vw;
 }
 
+#cancel-button:hover {
+  background: rgba(189, 0, 0, 0.1);
+}
+#confirm-button:hover {
+  background: #CCCCCC66;
+}
+.border_button:hover {
+  background: #CCCCCC66;
+}
 
 
 table {
