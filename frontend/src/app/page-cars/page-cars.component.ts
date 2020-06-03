@@ -15,9 +15,12 @@ export class PageCarsComponent implements OnInit {
   selectedCar: Car;
   constructor(private router: Router, private db: BackendCommunicationService) { }
   ngOnInit(): void {
-    this.getCars();
-    this.selectedCar = (this.cars)[1];
-    console.log('edcedce');
+    this.db.getCars()
+      .subscribe(cars => { //callback
+        this.cars = cars
+        this.selectedCar = (this.cars)[1];
+        console.log('edcedce');
+      })
   }
   toS() {
     document.getElementById('models').setAttribute('class', 'border_button_active');
@@ -91,7 +94,11 @@ export class PageCarsComponent implements OnInit {
   }
   getCars(): void {
     this.db.getCars()
-      .subscribe(cars => this.cars = cars);
+      .subscribe(cars => {
+        console.log(cars);
+        this.cars = cars
+
+      });
   }
 }
 

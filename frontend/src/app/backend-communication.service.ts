@@ -9,8 +9,8 @@ import { map } from 'rxjs/operators';
 })
 export class BackendCommunicationService {
 
-  hostOrders = 'localhost:3000/orders';
-  hostCars = 'localhost:3000/cars';
+  hostOrders = 'http:/localhost:3000/orders';
+  hostCars = 'http:/localhost:3000/cars';
 
   constructor(private http: HttpClient) { }
 
@@ -25,7 +25,7 @@ export class BackendCommunicationService {
   }
 
   public getCars(): Observable<Car[]>{
-    return this.http.get<Car[]>(this.hostCars);
+    return this.http.get<Car[]>("http://192.168.1.133:3550/cars");
   }
   public getConfigure(id: string) {
     return this.http.get( this.hostCars + '/' + id + '/configure');

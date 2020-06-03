@@ -10,6 +10,7 @@ export interface Order {
 
 export interface Car {
   _id: string;
+  name: string;
   description: string;
   cost: number;
 }
