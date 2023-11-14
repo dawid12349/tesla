@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const con = 'mongodb+srv://:@cluster0-qpuuj.mongodb.net/tesla';
+const con = '';
 mongoose.connect(con, {
     useNewUrlParser: true,
     useCreateIndex: true,
